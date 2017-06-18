@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/jqzoom.css"/>
+
+    <link rel="stylesheet" href="css/thickbox.css"/>
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jquery.jqzoom-core.js" type="text/javascript"></script>
+    <script src="js/use_jqzoom.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/jquery.thickbox.js" charset="gbk"></script>
+</head>
+<style>
+    .contain{width: 1000px;margin: 0px auto;border: 1px solid red;}
+    #jnProitem{ width:398px; float:left;height: 560px; display:inline;}
+    .imgList{ width:400px; float:left;}
+    #jnProitem .jqzoomWrap{ float:left; width:397px; height:400px; border:1px solid #ddd; position:relative;margin-top:10px;}
+    #jnProitem ul.imgList{ height: 80px; }
+    #jnProitem ul.imgList li {  float:left; margin-right:16px;margin-top: 6px;}
+    #jnProitem ul.imgList li img {  width:65px;height:65px; padding:1px;background:#ddd;cursor:pointer;}
+    #jnProitem span {  clear: both;
+        display: block;
+        padding-top: 10px;
+        text-align: center;
+        width: 397px;
+    }
+    .color_change{float:left}
+    .color_change ul li{float: left}
+</style>
+<body>
+<div class="contain">
+    <div id="jnProitem" >
+        <div class="jqzoomWrap ">
+            <a href="img/blue_one_big.jpg" class="jqzoom" rel='gal1' title="商品细节图" >
+                <img src="img/blue_one_small.jpg" style="width:397px;height:400px" id="bigImg" title="商品名字" />
+            </a>
+        </div>
+        <span>
+                <a title="介绍文字" id="thickImg" href="img/blue_one_big.jpg" class="thickbox">
+                    <img src="img/look.gif" alt="点击看大图" />
+                </a>
+         </span>
+        <!--小图片开始-->
+        <ul class="imgList">
+            <li class="imgList_blue"><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: 'img/blue_one_small.jpg',largeimage: 'img/blue_one_big.jpg'}"><img src='img/blue_one.jpg' alt=""/></a></li>
+            <li class="imgList_blue"><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: 'img/blue_two_small.jpg',largeimage: 'img/blue_two_big.jpg'}"><img src='img/blue_two.jpg' alt=""/></a></li>
+            <li class="imgList_blue"><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: 'img/blue_three_small.jpg',largeimage: 'img/blue_three_big.jpg'}"><img src='img/blue_three.jpg' alt=""/></a></li>
+            <li class="imgList_blue"><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: 'img/blue_two_small.jpg',largeimage: 'img/blue_two_big.jpg'}"><img src='img/blue_two.jpg' alt=""/></a></li>
+            <li class="imgList_blue" style="margin-right: 0px;"><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: 'img/blue_three_small.jpg',largeimage: 'img/blue_three_big.jpg'}"><img src='img/blue_three.jpg' alt=""/></a></li>
+
+            <li class="imgList_green hide"><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: 'img/green_one_small.jpg',largeimage: 'img/green_one_big.jpg'}"><img src='img/green_one.jpg' alt=""/></a></li>
+            <li class="imgList_green hide"><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: 'img/green_two_small.jpg',largeimage: 'img/green_two_big.jpg'}"><img src='img/green_two.jpg' alt=""/></a></li>
+
+            <li class="imgList_yellow hide"><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: 'img/yellow_one_small.jpg',largeimage: 'img/yellow_one_big.jpg'}"><img src='img/yellow_one.jpg' alt=""/></a></li>
+            <li class="imgList_yellow hide"><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: 'img/yellow_two_small.jpg',largeimage: 'img/yellow_two_big.jpg'}"><img src='img/yellow_two.jpg' alt=""/></a></li>
+            <li class="imgList_yellow hide"><a href='javascript:void(0);' rel="{gallery: 'gal1', smallimage: 'img/yellow_three_small.jpg',largeimage: 'img/yellow_three_big.jpg'}"><img src='img/yellow_three.jpg' alt=""/></a>
+            </li>
+        </ul>
+    </div>
+    <div class="color_change">
+        <span>颜&#12288;&#12288;色：</span>
+        <strong>蓝白</strong>
+        <ul>
+            <li><img alt="蓝白" src="img/blue.jpg" /></li>
+            <li><img alt="黄白" src="img/yellow.jpg" /></li>
+            <li><img alt="粉绿" src="img/green.jpg" /></li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="pro_rating">
+    给商品评分：
+    <ul class="rating nostar">
+        <li class="one"><a title="1分" href="#">1</a></li>
+        <li class="two"><a title="2分" href="#">2</a></li>
+        <li class="three"><a title="3分" href="#">3</a></li>
+        <li class="four"><a title="4分" href="#">4</a></li>
+        <li class="five"><a title="5分" href="#">5</a></li>
+    </ul>
+</div>
+<!-- 普通弹出层 [[ -->
+<!--<div id="basic-dialog-ok">
+    <div class="box-title show"><h2>提示</h2></div>
+    <div class="box-main">
+        <div class="tips">
+			<span class="tips-ico">
+				<span class="ico-ok">&lt;!&ndash; 图标 &ndash;&gt;</span>
+			</span>
+            <div class="tips-content">
+                <div class="tips-title" id="jnDialogContent"></div>
+                <div class="tips-line"></div>
+            </div>
+        </div>
+        <div class="box-buttons"><button type="button" class="simplemodal-close">关 闭</button></div>
+    </div>
+</div>
+&lt;!&ndash; 普通弹出层 ]] &ndash;&gt;-->
+</body>
+<script>
+    $(function(){
+        /*  图片边框切换*/
+        $(".imgList").find("img").mouseover(function(){
+            $(this).css("background","#cf000e");
+            $(this).parent().parent().siblings().find("img").css("background","#ddd");
+        });
+        /*右侧小图片切换*/
+        /*衣服颜色切换*/
+        $(".color_change ul li img").click(function(){
+            $(this).addClass("hover").parent().siblings().find("img").removeClass("hover");
+            var imgSrc = $(this).attr("src");
+            var i = imgSrc.lastIndexOf(".");
+            var unit = imgSrc.substring(i);
+            imgSrc = imgSrc.substring(0,i);
+            var imgSrc_small = imgSrc + "_one_small"+ unit;
+            var imgSrc_big = imgSrc + "_one_big"+ unit;
+            $("#bigImg").attr({"src": imgSrc_small });
+            $("#thickImg").attr("href", imgSrc_big);
+            var alt = $(this).attr("alt");
+            $(".color_change strong").text(alt);
+            var newImgSrc = imgSrc.replace("img/","");
+            $("#jnProitem .imgList li").hide();
+            $("#jnProitem .imgList").find(".imgList_"+newImgSrc).show();
+            //解决问题：切换颜色后，放大图片还是显示原来的图片。
+            $("#jnProitem .imgList").find(".imgList_"+newImgSrc).eq(0).find("a").mouseover();
+        });
+    });
+</script>
+</html>
