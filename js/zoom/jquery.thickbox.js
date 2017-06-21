@@ -8,7 +8,7 @@
  * http://jamazon.co.uk/web/2008/03/17/thickbox-31-ie7-positioning-bug/
 */
 		  
-var tb_pathToImage = "images/loadingAnimation.gif";
+var tb_pathToImage = "../myExample/img/loadingAnimation.gif";
 
 /*!!!!!!!!!!!!!!!!! edit below this line at your own risk !!!!!!!!!!!!!!!!!!!!!!!*/
 
