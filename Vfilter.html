@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<link href="" rel="stylesheet">
+<script src="js/vue/vue-2.3.js"></script>
+</head>
+<body>
+    <div id="app">
+       <button @click="sxOne">筛选01</button> 
+       <button @click="sxTwo">筛选02</button> 
+       <button @click="sxThree">筛选03</button>
+       <button @click="sxall">全部显示</button>
+    	<ul>
+    		<li v-for="item in list" v-show="mest(item.statu)">
+    			<div><span>{{item.name}}</span> <span>{{item.age}}</span>+<span>{{item.statu}}</span></div>
+    		</li>
+    	</ul>
+    </div>
+</body>
+<script type="text/javascript">
+    var list = [
+              { 'name':'tom','age':'18','statu':'01'},
+              { 'name':'lili','age':'30','statu':'01'},
+              { 'name':'lala','age':'12','statu':'01'},
+              { 'name':'zezhe','age':'120','statu':'01'},
+              { 'name':'fhas','age':'12','statu':'02'},
+              { 'name':'Mzaa','age':'8','statu':'02'},
+              { 'name':'feili','age':'10','statu':'01'},
+              { 'name':'fser','age':'17','statu':'01'},
+              { 'name':'jitic','age':'07','statu':'03'},
+              { 'name':'zhaoe','age':'16','statu':'03'},
+              { 'name':'fappao','age':'22','statu':'03'},
+              { 'name':'fierl','age':'39','statu':'03'}
+              ]
+	window.onload =  function(){
+		 new Vue({
+		 	el:"#app",
+		 	data:{
+                msg:"ad",
+                list:list,
+                statu:"",
+                sefe:true
+		 	 },
+		 	 methods:{
+		 	 	mest(item){
+		 	 		return this.sefe || item === this.statu
+		 	 	},
+		 	 	sxOne(){
+                     this.sefe = false;
+                     this.statu = "01";
+		 	 	},
+		 	 	sxTwo(){
+                     this.sefe = false;
+                     this.statu = "02";
+		 	 	},
+		 	 	sxThree(){
+                     this.sefe = false;
+                     this.statu = "03";
+		 	 	},
+		 	 	sxall(){
+		 	 		this.sefe = true;
+		 	 	}
+		 	 }
+		 	
+		 })
+	}
+</script>
+</html>
