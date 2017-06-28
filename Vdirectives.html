@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<script src="js/vue/vue-2.3.js"></script>
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <div id ="app">
+        <input type="text" name="" v-focus="fc" @click.prevent = "cv">
+    	{{msg}}
+    	<button @click="nofocus">点我获得焦点</button>
+    </div>
+</body>
+ <script type="text/javascript">
+ 	 window.onload = function (){
+ 	 	 new Vue ({
+ 	 	 	el:'#app',
+ 	 	 	data:{
+ 	 	 		msg:'ad',
+ 	 	 		fc:false
+ 	 	 	},
+
+ 	 directives: {
+          focus: {
+        update: function (el, {value}) {
+            if (value) {
+                el.focus();
+            }
+        }
+    }
+},
+  methods:{
+  	 nofocus(){
+  	 	this.fc = !this.fc;
+  	 },
+  	 cv(){
+  	 	this.fc = false;
+  	 }
+  }
+ 	 	 })
+ 	 }
+ </script>
+</html>
