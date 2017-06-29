@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id ="app">
-        <input type="text" name="" v-focus="fc" @click.prevent = "cv">
+        <input type="text" name="" v-focus="fc">
     	{{msg}}
     	<button @click="nofocus">点我获得焦点</button>
     </div>
@@ -38,9 +38,7 @@
   	 nofocus(){
   	 	this.fc = !this.fc;
   	 },
-  	 cv(){
-  	 	this.fc = false;
-  	 }
+
   }
  	 	 })
  	 }
