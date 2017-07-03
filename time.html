@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>time</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    
+</body>
+ <script type="text/javascript">
+ 	 function jsonDateFormat(jsonDate) {
+        try {
+            var date = new Date(parseInt(jsonDate.replace("/Date(", "").replace(")/", ""), 10));
+            var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+            var day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+            var milliseconds = date.getMilliseconds();
+            return date.getFullYear() + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
+        } catch (ex) {
+            return "";
+        }
+    }
+ </script>
+</html>
