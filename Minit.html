@@ -14,15 +14,34 @@ window.addEventListener("resize", setRem);
 function setRem() {
 	var html = document.querySelector("html");
 	var width = html.getBoundingClientRect().width;
-	html.style.fontSize = width / 16 + "px";
+	console.log(width);
+	html.style.fontSize = width / 15 + "px";
 }
 </script>
 </head>
 <style type="text/css">
-/*aa*/
+  body{
+  	margin: 0;
+  	padding: 0;
+  	width: 100%;
+
+  }
+  .text{
+     height:1.3rem;
+  	background-color:red;
+  	width: 100%;
+  }
+  .text2{
+  	 width: 100%;
+  	 height: 50px;
+  	 background-color: green;
+  }
 </style>
 <body>
     <div class="text">
+    	
+    </div>
+    <div class="text2">
     	
     </div>
 </body>

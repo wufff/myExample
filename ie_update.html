@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>ie_低版本兼容屏蔽</title>
+<link href="" rel="stylesheet">
+<style type="text/css">
+
+</style>
+</head>
+<script src="js/jq/jquery-1.9.1.min.js"></script>
+<!--[if lt IE 8]>
+		<script type="text/javascript">
+			$(function () {
+		    var  div = document.createElement("div");
+		    div.className = "if_ie7";
+		    var html = '<img src="www.baidu.com/img/bd_logo1.png"/>' + '<br/>';
+		    html += '您的IE浏览器本版本过低，请升级到IE7以上,或者使用';
+		    html += '<a href="http://www.googlechromer.cn/" class="ie6_a">谷歌浏览器</a>' + '或' + '<a href="http://www.firefox.com.cn/"  class="ie6_a">火狐浏览器</a>';
+		    div.innerHTML = html;
+		    document.body.appendChild(div);
+		})
+		</script>    
+ <![endif]-->
+<body>
+    
+</body>
+</html>
