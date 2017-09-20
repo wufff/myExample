@@ -19,8 +19,21 @@
       <ul v-for="item in man | filterBy 'l' in 'name' 'dada' "> <!--输出lily+undefined lucy+undefined undefined+lsh-->
         <li>{{item.name+"+"+item.dada}}</li>
       </ul>
+      <h5>js filter 和 map</h5>
+       <ul>
+          <li v-for="item in lili2">{{item.id}}</li>
+       </ul>
     </div>
+    
     <script type="text/javascript">
+      var data = [
+                   {"isSelect":true,"id":"adfeade333"},
+                   {"isSelect":false,"id":"adfeade444"},
+                   {"isSelect":true,"id":"adfeade666"}
+                  ]
+       var data2 = data.filter( item => {
+                        return item.isSelect == true;
+                    } );
       var myVue = new Vue({
         el: ".test",
         data: {
@@ -31,9 +44,37 @@
           {name: "oo"},
           {dada: "lsh"},
           {dada: "ofg"}
-          ]
+          ],
+          lili2:data2
         }
+        
       })
+    </script>
+    <script type="text/javascript">
+       var data = [
+                   {"isSelect":true,"id":"adfeade333"},
+                   {"isSelect":false,"id":"adfeade444"},
+                   {"isSelect":true,"id":"adfeade666"}
+                  ]
+       var data2 = data.filter( item => {
+                        return item.isSelect == false;
+                    } );
+       var data3 = data.filter( item => {
+                        return item.isSelect == false;
+                    } ).map( item => {
+                        return  item.id;
+                    } )
+        console.log(data2)            
+        console.log(data3);
+        if(data3.length){
+          alert("真")
+        }else{
+          alert("假")
+        }
+    </script>
+    <script type="text/ecmascript-6">
+      
+
     </script>
   </body>
 </html>
