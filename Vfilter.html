@@ -18,9 +18,33 @@
     			<div><span>{{item.name}}</span> <span>{{item.age}}</span>+<span>{{item.statu}}</span></div>
     		</li>
     	</ul>
+      <h5>二维数组</h5>
+      <ul>
+        <li v-for = "(item,index) in filters">
+           <ul>
+               <li v-for="(item,index2) in item.categories" @click="showIndx(index,index2)">{{item}}：{{index}}：{{index2}}</li>
+           </ul>
+        </li>
+      </ul>
     </div>
 </body>
 <script type="text/javascript">
+      var filters = [
+    {
+      categories: ['电子商务', '互联网医疗', '互联网金融'],
+      showFilter: false,
+      title: '分类'
+    }, {
+      categories: ['正在申购', '申购完成'],
+      showFilter: false,
+      title: '状态'
+    }, {
+      categories: ['杭州', '上海', '北京', '深圳', '广州'],
+      showFilter: false,
+      title: '地区'
+    }
+   ]
+
     var list = [
               { 'name':'tom','age':'18','statu':'01'},
               { 'name':'lili','age':'30','statu':'01'},
@@ -42,7 +66,8 @@
                 msg:"ad",
                 list:list,
                 statu:"",
-                sefe:true
+                sefe:true,
+                filters:filters
 		 	 },
 		 	 methods:{
 		 	 	mest(item){
@@ -62,7 +87,11 @@
 		 	 	},
 		 	 	sxall(){
 		 	 		this.sefe = true;
-		 	 	}
+		 	 	},
+        showIndx(index,index2){
+          console.log(index);
+          console.log(index2);
+        }
 		 	 }
 		 	
 		 })
