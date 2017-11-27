@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/css1.css"/>
+    <script src="js/jquery-1.8.3.min.js"></script>
+</head>
+<style>
+    body{
+        margin:0px;
+        padding:0px;
+        font-size:12px;
+        line-height:20px;
+        color:#333;
+    }
+    ul,li,ol,h1,dl,dd{
+        list-style:none;
+        margin:0px;
+        padding:0px;
+    }
+    a{
+        color:#333333;
+        text-decoration: none;
+    }
+    a:hover{
+        color:#333333;
+        text-decoration:underline;
+    }
+    img{
+        border:0px;
+    }
+    #header,#main,#footer{
+        width:960px;
+        margin:0px auto 0px auto;
+        clear:both;
+        float:none;
+    }
+</style>
+<body>
+<div id="main">
+    <div>&nbsp;&nbsp;<img src="images/shopping_myshopping.gif" alt="shopping"/> <a href="#">全场免运费活动中</a></div>
+    <!--为您推荐商品开始-->
+    <div class="shopping_commend">
+        <div class="shopping_commend_left">根据您挑选的商品，当当为您推荐</div>
+        <div class="shopping_commend_right"><img src="images/shopping_arrow_up.gif" alt="shopping" id="shopping_commend_arrow"/></div>
+    </div>
+    <div id="shopping_commend_sort">
+        <div class="shopping_commend_sort_left">
+            <ul>
+                <li class="shopping_commend_list_1">·<a href="#" class="blue">JavaScript DOM编程艺术</a></li>
+                <li class="shopping_commend_list_2">￥39.00</li>
+                <li class="shopping_commend_list_3">￥29.30</li>
+                <li class="shopping_commend_list_4"><a href="#" class="shopping_yellow">购买</a></li>
+            </ul>
+            <ul>
+                <li class="shopping_commend_list_1">·<a href="#" class="blue">解禁（当当网独家首发）</a></li>
+                <li class="shopping_commend_list_2">￥28.00</li>
+                <li class="shopping_commend_list_3">￥19.40</li>
+                <li class="shopping_commend_list_4"><a href="#" class="shopping_yellow">购买</a></li>
+            </ul>
+            <ul>
+                <li class="shopping_commend_list_1">·<a href="#" class="blue">地王之王（金融危机下房地产行...</a></li>
+                <li class="shopping_commend_list_2">￥32.80</li>
+                <li class="shopping_commend_list_3">￥25.10</li>
+                <li class="shopping_commend_list_4"><a href="#" class="shopping_yellow">购买</a></li>
+            </ul>
+            <ul>
+                <li class="shopping_commend_list_1">·<a href="#" class="blue">逃庄</a></li>
+                <li class="shopping_commend_list_2">￥36.00</li>
+                <li class="shopping_commend_list_3">￥27.70</li>
+                <li class="shopping_commend_list_4"><a href="#" class="shopping_yellow">购买</a></li>
+            </ul>
+        </div>
+        <div class="shopping_commend_sort_mid"></div>
+        <div class="shopping_commend_sort_left">
+            <ul>
+                <li class="shopping_commend_list_1">·<a href="#" class="blue">深入浅出MySQL数据库开发、优...</a></li>
+                <li class="shopping_commend_list_2">￥59.00</li>
+                <li class="shopping_commend_list_3">￥47.20</li>
+                <li class="shopping_commend_list_4"><a href="#" class="shopping_yellow">购买</a></li>
+            </ul>
+            <ul>
+                <li class="shopping_commend_list_1">·<a href="#" class="blue">大玩家（马未都、王刚推荐!央...</a></li>
+                <li class="shopping_commend_list_2">￥34.80</li>
+                <li class="shopping_commend_list_3">￥20.60</li>
+                <li class="shopping_commend_list_4"><a href="#" class="shopping_yellow">购买</a></li>
+            </ul>
+            <ul>
+                <li class="shopping_commend_list_1">·<a href="#" class="blue">都市风水师--官场风水小说：一...</a></li>
+                <li class="shopping_commend_list_2">￥39.80</li>
+                <li class="shopping_commend_list_3">￥30.50</li>
+                <li class="shopping_commend_list_4"><a href="#" class="shopping_yellow">购买</a></li>
+            </ul>
+            <ul>
+                <li class="shopping_commend_list_1">·<a href="#" class="blue">国戏（以麻将术语解读宦海沉浮...</a></li>
+                <li class="shopping_commend_list_2">￥25.00</li>
+                <li class="shopping_commend_list_3">￥17.30</li>
+                <li class="shopping_commend_list_4"><a href="#" class="shopping_yellow">购买</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="shopping_list_top">您已选购以下商品</div>
+    <div class="shopping_list_border">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr class="shopping_list_title">
+                <td class="shopping_list_title_1">商品名</td>
+                <td class="shopping_list_title_2">单品积分</td>
+                <td class="shopping_list_title_3">市场价</td>
+                <td class="shopping_list_title_4">当当价</td>
+                <td class="shopping_list_title_5">数量</td>
+                <td class="shopping_list_title_6">删除</td>
+            </tr>
+        </table>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" id="myTableProduct">
+            <tr class="shopping_product_list" id="shoppingProduct_01">
+                <td class="shopping_product_list_1"><a href="#" class="blue">私募（首部披露资本博弈秘密的金融...</a></td>
+                <td class="shopping_product_list_2"><label>189</label></td>
+                <td class="shopping_product_list_3">￥<label>32.00</label></td>
+                <td class="shopping_product_list_4">￥<label>18.90 </label>(59折)</td>
+                <td class="shopping_product_list_5"><input type="text" value="1"/></td>
+                <td class="shopping_product_list_6"><a href="javascript:void(0)" class="blue">删除</a></td>
+            </tr>
+            <tr class="shopping_product_list" id="shoppingProduct_02">
+                <td class="shopping_product_list_1"><a href="#" class="blue"> 小团圆（张爱玲最神秘小说遗稿）</a></td>
+                <td class="shopping_product_list_2"><label>173</label></td>
+                <td class="shopping_product_list_3">￥<label>28.00</label></td>
+                <td class="shopping_product_list_4">￥<label>17.30</label>(62折)</td>
+                <td class="shopping_product_list_5"><input type="text" value="1"/></td>
+                <td class="shopping_product_list_6"><a href="javascript:void(0)" class="blue">删除</a></td>
+            </tr>
+            <tr class="shopping_product_list" id="shoppingProduct_03">
+                <td class="shopping_product_list_1"><a href="#" class="blue">不抱怨的世界(畅销全球80国的世界...</a></td>
+                <td class="shopping_product_list_2"><label>154</label></td>
+                <td class="shopping_product_list_3">￥<label>24.80</label></td>
+                <td class="shopping_product_list_4">￥<label>15.40</label> (62折)</td>
+                <td class="shopping_product_list_5"><input type="text" value="2"/></td>
+                <td class="shopping_product_list_6"><a href="javascript:void(0)" class="blue">删除</a></td>
+            </tr>
+            <tr class="shopping_product_list" id="shoppingProduct_04">
+                <td class="shopping_product_list_1"><a href="#" class="blue">福玛特双桶洗衣机XPB20-07S</a></td>
+                <td class="shopping_product_list_2"><label>358</label></td>
+                <td class="shopping_product_list_3">￥<label>458.00</label></td>
+                <td class="shopping_product_list_4">￥<label>358.00</label> (78折)</td>
+                <td class="shopping_product_list_5"><input type="text" value="1"/></td>
+                <td class="shopping_product_list_6"><a href="javascript:void(0)" class="blue">删除</a></td>
+            </tr>
+            <tr class="shopping_product_list" id="shoppingProduct_05">
+                <td class="shopping_product_list_1"><a href="#" class="blue">PHP和MySQL Web开发 （原书第4版）</a></td>
+                <td class="shopping_product_list_2"><label>712</label></td>
+                <td class="shopping_product_list_3">￥<label>95.00</label></td>
+                <td class="shopping_product_list_4">￥<label>71.20</label> (75折)</td>
+                <td class="shopping_product_list_5"><input type="text" value="1"/></td>
+                <td class="shopping_product_list_6"><a href="javascript:void(0)" class="blue">删除</a></td>
+            </tr>
+            <tr class="shopping_product_list" id="shoppingProduct_06">
+                <td class="shopping_product_list_1"><a href="#" class="blue">法布尔昆虫记</a>（再买￥68.30即可参加“满199元减10元现金”活动）</td>
+                <td class="shopping_product_list_2"><label>10</label></td>
+                <td class="shopping_product_list_3">￥<label>198.00</label></td>
+                <td class="shopping_product_list_4">￥<label>130.70</label> (66折)</td>
+                <td class="shopping_product_list_5"><input type="text" value="1"/></td>
+                <td class="shopping_product_list_6"><a href="javascript:void(0)" class="blue">删除</a></td>
+            </tr>
+        </table>
+        <div class="shopping_list_end">
+            <div><a id="removeAllProduct" href="javascript:void(0);">清空购物车</a></div>
+            <ul>
+                <li class="shopping_list_end_1"><input name="" type="image" src="images/shopping_balance.gif"/></li>
+                <li class="shopping_list_end_2">￥<label id="product_total"></label></li>
+                <li class="shopping_list_end_3">商品金额总计：</li>
+                <li  class="shopping_list_end_4">您共节省金额：￥<label class="shopping_list_end_yellow" id="product_save"></label><br/>
+                    可获商品积分：<label class="shopping_list_end_yellow" id="product_integral"></label>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(function(){
+        //根据您挑选的商品，当当为您推荐部分的显示和隐藏
+        $("#shopping_commend_arrow").click(function(){
+            if($("#shopping_commend_sort").css("display")=="none"){
+                $(this).attr("src","images/shopping_arrow_up.gif");
+            }else{
+                $(this).attr("src","images/shopping_arrow_down.gif");
+            }
+            $("#shopping_commend_sort").slideToggle(200);
+        });
+        //商品隔行变色
+        $("#myTableProduct").find("tr:odd").css("backgroundColor","#ffebcd");
+        //商品变色
+        $("#myTableProduct").find("tr").mouseover(function(){
+            $(this).css("backgroundColor","#fff");
+        }).mouseout(function(){
+            if($("#myTableProduct").find("tr").index($(this))%2==1) {//判断是否奇数行
+                $(this).css("backgroundColor","#ffebcd");
+            }else{
+                $(this).css("backgroundColor","#fefbf2");
+            }
+        });
+        //计算总价
+        function totalPrice(){
+            var percents= 0,prePrices= 0,prices=0;//积分，原价，现价
+            $("#myTableProduct").find("tr").each(function(i,ele){
+                var num=$(ele).find(".shopping_product_list_5").find("input").val();//数量
+                percents+=parseInt($(ele).find(".shopping_product_list_2").text())*num;
+                //解决下js中浮点数的bug问题，因此建议浮点数的运算不要放在前台，这里是指粗略的解决了一下
+                var price=parseInt($(ele).find(".shopping_product_list_4").find("label").text().replace(".",""))*num;
+                prices+=price;
+                var prePrice=parseInt($(ele).find(".shopping_product_list_3").find("label").text().replace(".",""))*num;
+                prePrices+=prePrice;
+            });
+            $("#product_integral").text(percents);
+            $("#product_total").text(prices/100);
+            $("#product_save").text((prePrices-prices)/100);
+            return prices/100;
+        }
+        totalPrice();
+        //删除商品
+        $("#myTableProduct").find(".shopping_product_list_6").children("a").click(function(){
+            if(confirm("您确定要删除商品么？")){
+                $(this).parent().parent().remove();
+                totalPrice();
+            }
+        });
+        //修改数量
+        $("#myTableProduct").find(".shopping_product_list_5").children("input").change(function(){
+            var value=$(this).val();
+            if((value == "")||!(/^[0-9]*[1-9][0-9]*$/.test(value))){
+                alert("数量不能为空，且只能为正整数");
+                $(this).val(1);
+            }
+            var t =totalPrice();
+            alert("修改成功！，您的商品总金额是"+t+"元");
+        });
+        //清空购物车
+        $("#removeAllProduct").click(function(){
+            //注意清除的先后顺序
+            $("#myTableProduct").next().remove();
+            $("#myTableProduct").remove();
+            $(".shopping_list_border").append("<div class='empty_product'><div>您还没有挑选商品，<a href='index.html'>去挑选看看>></a></div></div>");
+
+        });
+
+
+        var  a = 3;
+        var m = a.toFixed(2);
+        console.log(m);
+    });
+</script>
+</html>

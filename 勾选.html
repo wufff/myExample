@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0"/>
+    <title>勾选</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+</head>
+<style>
+    .checked_box{
+          background: darksalmon;
+          height: 40px;
+          line-height: 40px;
+      }
+      .checked_box input{
+          display: none;
+      }
+      .checked_box input[type=checkbox] +label:before{
+          content: "";
+          display: inline-block;
+          width: 15px;
+          height: 15px;
+          background:url(img/checkbox-1_03.png) no-repeat -3px -5px;
+          margin-right: 10px;
+          position: relative;
+          top: 3px;;
+      }
+      .checked_box input[type=checkbox]:checked +label:before{
+          background:url(img/checkbox-1_03.png) no-repeat  -3px -24px;
+      }
+   /* 第二种方法*/
+    #checkbox2{
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        position: relative;
+        top: 3px;
+        margin-right: 20px;
+    }
+      .check{
+          background: url("img/checkbox-1_03.png") -3px -5px;
+      }
+      .checked{
+          background: url("img/checkbox-1_03.png") -3px -24px;
+      }
+      #button{
+          margin:10px;
+          width: 100px;
+          height: 40px;
+          line-height: 40px;
+          border: none;
+          color: white;
+          outline: none;
+          font-size: 14px;
+          color: white;
+          outline-style:none;
+      }
+      .yesSubmit{
+          background: red;
+          cursor: pointer;
+      }
+      .noSubmit{
+          background: darkgrey;
+          cursor:default ;
+      }
+   /* 方法三*/
+      .checked_box3{background: darksalmon; height: 40px;}
+      .checked_box3 label{overflow: hidden;  float:left; margin:0 5px; position:relative;padding-top: 10px;}
+      .checked_box3 label input{ position:absolute;left:-15px;top:-15px;}
+      .checked_box3 label span{float:left;width:15px;height:15px;cursor: pointer; background:url(img/checkbox-1_03.png) no-repeat -3px -5px;margin-right: 10px;margin-top: 2px}
+      input:checked~span{ background:url(img/checkbox-1_03.png) no-repeat  -3px -24px;}
+</style>
+<script type="text/javascript" src="js/jq/jquery-1.8.3.min.js"></script>
+
+<script>
+    $(function(){
+       $("#checkbox2").toggle(
+              function(){
+                  $(this).removeClass("check").addClass("checked");
+                  $("#button").removeClass("nosSubmit").addClass("yesSubmit");
+              },
+              function(){
+                  $(this).removeClass("checked").addClass("check");
+                  $("#button").removeClass("yesSubmit").addClass("nosSubmit");
+              }
+        );
+        $("#button").click(function(){
+            if($("#button").attr('class')=="yesSubmit"){
+                alert(123);
+            }
+        });
+       /* alert($("#button").attr('class'))*/
+    })
+</script>
+<body>
+    <h2>方法一</h2>
+    <div class="checked_box">
+        <input type="checkbox" id="check1"><label for="check1">是否同意此协议</label>
+    </div>
+    <h2>方法二</h2>
+    <div class="checked_box">
+        <span id="checkbox2" class="check"></span><span>是否同意此协议</span>
+    </div>
+    <div><input type="button"id="button" value="注册" class="nosSubmit" hidefocus="true"/></div>
+    <h3>方法二</h3>
+    <div class="checked_box3 clearfix">
+        <label>
+            <input type="checkbox" name="tab" value="3"/>
+            <span></span> 是否同意此协议
+        </label>
+    </div>
+</body>
+</html>

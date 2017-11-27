@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <link rel="stylesheet" href="css/css.css"/>
+</head>
+<style>
+    body{
+        margin:0px;
+        padding:0px;
+        font-size:12px;
+        line-height:20px;
+        color:#333;
+    }
+    ul,li,ol,h1,dl,dd{
+        list-style:none;
+        margin:0px;
+        padding:0px;
+    }
+    a{
+        color:#333333;
+        text-decoration: none;
+    }
+    a:hover{
+        color:#333333;
+        text-decoration:underline;
+    }
+    img{
+        border:0px;
+    }
+</style>
+<body>
+  <div id="main">
+      <div id="silder">
+          <!--书讯快递-->
+          <div class="book_sort">
+              <div class="book_sort_bg"><img src="images/dd_book_mess.gif" alt="mess" style=" vertical-align:text-bottom;"/>书讯快递</div>
+              <div class="book_class">
+                  <div id="dome">
+
+                          <ul id="express">
+                              <li>・2010考研英语大纲到货75折...</li>
+                              <li>・权威定本四大名著（人民文...</li>
+                              <li>・口述历史权威唐德刚先生国...</li>
+                              <li>・袁伟民与体坛风云：实话实...</li>
+                              <li>・我们台湾这些年：轰动两岸...</li>
+                              <li>・畅销教辅推荐：精品套书50...</li>
+                              <li>・2010版法律硕士联考大纲75...</li>
+                              <li>・计算机新书畅销书75折抢购</li>
+                              <li>・2009年孩子最喜欢的书&gt;&gt;</li>
+                              <li>・弗洛伊德作品精选集59折</li>
+                              <li>・2010考研英语大纲到货75折...</li>
+                              <li>・权威定本四大名著（人民文...</li>
+                              <li>・口述历史权威唐德刚先生国...</li>
+                              <li>・袁伟民与体坛风云：实话实...</li>
+                              <li>・我们台湾这些年：轰动两岸...</li>
+                              <li>・畅销教辅推荐：精品套书50...</li>
+                              <li>・2010版法律硕士联考大纲75...</li>
+                              <li>・计算机新书畅销书75折抢购</li>
+                              <li>・2009年孩子最喜欢的书&gt;&gt;</li>
+                              <li>・弗洛伊德作品精选集59折</li>
+                              <li>・2010考研英语大纲到货75折...</li>
+                              <li>・权威定本四大名著（人民文...</li>
+                              <li>・口述历史权威唐德刚先生国...</li>
+                              <li>・袁伟民与体坛风云：实话实...</li>
+                              <li>・我们台湾这些年：轰动两岸...</li>
+                              <li>・畅销教辅推荐：精品套书50...</li>
+                              <li>・2010版法律硕士联考大纲75...</li>
+                              <li>・计算机新书畅销书75折抢购</li>
+                              <li>・2009年孩子最喜欢的书&gt;&gt;</li>
+                              <li>・弗洛伊德作品精选集59折</li>
+                              <li>・2010考研英语大纲到货75折...</li>
+                              <li>・权威定本四大名著（人民文...</li>
+                              <li>・口述历史权威唐德刚先生国...</li>
+                              <li>・袁伟民与体坛风云：实话实...</li>
+                              <li>・我们台湾这些年：轰动两岸...</li>
+                              <li>・畅销教辅推荐：精品套书50...</li>
+                              <li>・2010版法律硕士联考大纲75...</li>
+                              <li>・计算机新书畅销书75折抢购</li>
+                              <li>・2009年孩子最喜欢的书&gt;&gt;</li>
+                              <li>・弗洛伊德作品精选集59折</li>
+                          </ul>
+
+                  </div>
+              </div>
+              <div class="book_express_avder"> <img src="images/dd_book_right_adver1.jpg" alt="adver" style="margin-bottom:5px;" /> <img src="images/dd_book_right_adver2.gif" alt="adver" /> </div>
+          </div>
+
+      </div>
+  </div>
+</body>
+<script>
+  $(function(){
+      function movedome(){
+          var marginTop=0;
+          var stop=false;
+          var interval=setInterval(function(){
+              if(stop) return;
+              $("#express").children("li").first().animate({"margin-top":marginTop--},0,function(){
+                  var $first=$(this);
+                  if(!$first.is(":animated")){
+                      if((-marginTop)>$first.height()){
+                          $first.css({"margin-top":0}).appendTo($("#express"));
+                          marginTop=0;
+                      }
+                  }
+              });
+          },50);
+          $("#express").mouseover(function(){
+              stop=true;
+          }).mouseout(function(){
+              stop=false;
+          });
+      }
+      movedome();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+@charset "utf-8";
+#silder{
+    float:left;
+}
+#silder{
+    width:220px;
+    margin-top:10px;
+}
+.book_sort{
+    border:solid 1px #999;
+    margin-bottom:10px;
+}
+.book_sort_bg{
+    background-color:#fff0d9;
+    padding-left:10px;
+    color:#882D00;
+    font-size:14px;
+    height:25px;
+    font-weight:bold;
+    line-height:30px;
+}
+#dome{
+    overflow:hidden; /*溢出的部分不显示*/
+    height:250px;
+    padding:5px;
+}
+#book_history dt,#book_family dt,#book_novel dt,#book_culture dt{
+    float:left;
+    width:90px;
+    text-align:center;
+}
+#book_history dd,#book_family dd,#book_novel dd,#book_culture dd{
+    float:left;
+    width:170px;
+    margin:0px 0px 5px 0px;
+    border:2px #fff solid;
+}
+.book_none{
+    display:none;
+}
+.book_show{
+    display:block;
+}
+.book_title{
+    color:#1965b3;
+    font-size:14px;
+}
+.book_publish{
+    color:#C00;
+}
+#book_focus dt{
+    width:125px;
+    margin:5px 0px 0px 7px;
+    float:left;
+    text-align:center;
+    height:90px;
+    display:inline;
+}
+#book_focus dd{
+    width:125px;
+    margin:5px 0px 0px 7px;
+    float:left;
+    height:40px;
+    display:inline;
+}
+#express li{
+    height:25px;
+    border-bottom:dashed 1px #999;
+    margin:0px 5px 0px 5px;
+    line-height:28px;
+}
+.book_express_avder{
+    margin:5px 0px 5px 0px;
+    text-align:center;
+}
+
+
+
+
