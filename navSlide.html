@@ -191,7 +191,7 @@ body {
 			var left = startX + dis;
 			var nowTime = new Date().getTime();
 			if(left > 0) {
-				step = 1-left / navScroll.clientWidth; //根据超出长度计算系数大小，超出的越到 系数越小
+				step = 1-left / box.clientWidth; //根据超出长度计算系数大小，超出的越到 系数越小
 				left = parseInt(left*step);
 				/*left = 0;*/
 			}

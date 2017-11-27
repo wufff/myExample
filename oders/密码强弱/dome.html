@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.8.3.min.js"></script>
+
+</head>
+<style>
+    .check_password{ width:342px; float:left; height:20px;margin:5px 0;border-radius:40px; padding:2px;}
+    .check_password span{ text-align:center; line-height:20px; border-radius:40px;}
+    .check_password span.check_li_password1{ width:85px; height:20px; float:left; background:#FFD7CC; margin-left:5px; color:#fff}
+    .check_password span.check_li_password1.this{ width:85px; height:20px; float:left; background:#ec3701; margin-left:5px; color:#fff}
+
+    .check_password span.check_li_password2{ width:85px; height:20px; float:left; background:#FFDFC2; margin-left:5px; color:#fff}
+    .check_password span.check_li_password2.this{ width:85px; height:20px; float:left; background:#f78115; margin-left:5px; color:#fff}
+
+    .check_password span.check_li_password3{ width:85px; height:20px; float:left; background:#CDDDAC; margin-left:5px; color:#fff}
+    .check_password span.check_li_password3.this{ width:85px; height:20px; float:left; background:#6ba001; margin-left:5px; color:#fff}
+</style>
+<body>
+<div>
+    <b>设置密码：</b>
+    <input name="phone_password" id="phone_password" type="password" class="login_input_pwd" placeholder="登录密码" style="padding-left:85px; width:214px;">
+</div>
+<div id="phone_password_li" class="check_password">
+    <span class="check_li_password1">弱</span>
+    <span class="check_li_password2">中</span>
+    <span class="check_li_password3">强</span>
+</div>
+</body>
+<script>
+        function containSpecialChar(str)
+            {
+        var containSpecial = RegExp(/[(\ )(\~)(\!)(\@)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\_)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\')(\")(\,)(\.)(\/)(\<)(\>)(\?)(\)]+/);
+        return (containSpecial.test(str));
+              };
+        function passwordSecurityLevel(password) {
+            var level = 0;
+            if (/[a-z]/.test(password)){
+                level++;    //lowercase
+            }
+            if (/[A-Z]/.test(password)){
+                level++;    //uppercase
+            }
+            if(/[0-9]/.test(password)){
+                level++;    //digital
+            }
+            if(containSpecialChar(password)){
+                level++;    //specialcase
+            }
+            return level;
+        };
+        $("#phone_password").keyup(function(){
+            var id=jQuery(this).attr("id");
+            var password = jQuery(this).val();
+            $("#"+id+"_li span").removeClass("this");
+            var level=passwordSecurityLevel(password);
+            if(level==0){
+                $("#"+id+"_li span").removeClass("this");
+            }
+            if(level==1){
+               $("#"+id+"_li .check_li_password1").addClass("this");
+            }
+            if(level==2 || level==3){
+                $("#"+id+"_li .check_li_password2").addClass("this");
+            }
+            if(level==4){
+                $("#"+id+"_li .check_li_password3").addClass("this");
+            }
+        })
+
+</script>
+</html>

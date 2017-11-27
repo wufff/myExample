@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+</head>
+<style type="text/css">
+    #btn{
+        text-decoration: none;
+        display: block;
+        width: 100px;
+        height: 35px;
+        background: #ccc;
+        text-align: center;
+        line-height: 35px;
+        color: #666;
+    }
+    #btn.btn{
+        background: red;
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+    }
+</style>
+<body>
+<div id="lastTime">
+    <span>0天 </span>
+    <span>00: </span>
+    <span>00: </span>
+    <span>00 </span>
+</div>
+<br /><br />
+<a href="javascript:;" id="btn">即将开抢!</a>
+<script type="text/javascript">
+    var oLt = document.getElementById("lastTime");
+    var oBtn = document.getElementById("btn");
+    timelast();
+    var timer = setInterval( timelast , 1000 );
+    function timelast(){
+    var endTime = new Date('2018/03/01 00:00:00');//结束日期不得在当前日期之前
+    var nowTime = new Date();
+    var splus = endTime.getTime() - nowTime.getTime();
+    //天 时 分 秒
+    if( splus <= 1 ){
+    clearInterval( timer );
+    oBtn.className = 'btn';
+    oBn.innerHTML = '开始秒杀!';
+    oBtn.href = 'http://www.baidu.com';
+    return;
+    }else{
+    oBtn.className = '';
+    }
+    var day = Math.floor( splus / 1000 / 60 / 60 / 24 );
+    var hours = Math.floor( splus / 1000 / 60 / 60 % 24 );
+    var min = Math.floor(splus / 1000 / 60 % 60);
+    var sec = Math.floor(splus / 1000 % 60);
+    oLt.innerHTML = day + '天 ' + double( hours ) + ':' + double( min ) + ':' + double( sec );
+
+    function double( n ){
+    if( n < 10 ){
+    n = '0' + n;
+    }
+    return n;
+    }
+    }
+</script>
+
+
+</body>
+</html>
