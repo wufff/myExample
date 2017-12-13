@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>confirm</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<link rel="stylesheet" href="css/bootstrap.css"/>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+    <button id="abc">Confirm</button>
+    <button id="def">alert</button>
+</body>
+
+<script type="text/javascript">
+function confirm(point,fun,params) {
+    if ($("#myConfirm").length > 0) {
+        $("#myConfirm").remove();
+    } 
+    if(!fun){
+    	var html = "<div class='modal fade' id='myConfirm' >"
+            + "<div class='modal-backdrop in' style='opacity:0; '></div>"
+            + "<div class='modal-dialog' style='z-index:2901; margin-top:160px; width:400px; '>"
+            + "<div class='modal-content'>"
+            + "<div class='modal-header'  style='font-size:16px; '>"
+            + "<span>&nbsp提示</span>"
+            + "<span style='font-size:20px;'></span>"
+            +"</div>"
+            + "<div class='modal-body text-center' id='myConfirmContent' style='font-size:18px; '>"
+            + point
+            + "</div>"
+            + "<div class='modal-footer'>"
+            + "<button class='btn btn-danger ' id='confirmOk' >确定<tton>"
+            + "</div>" + "</div></div></div>";
+    }else {
+    	 var html = "<div class='modal fade' id='myConfirm' >"
+            + "<div class='modal-backdrop in' style='opacity:0; '></div>"
+            + "<div class='modal-dialog' style='z-index:2901; margin-top:160px; width:400px; '>"
+            + "<div class='modal-content'>"
+            + "<div class='modal-header'  style='font-size:16px; '>"
+            + "<span>&nbsp确认框</span>"
+            + "<span style='font-size:20px;'></span>"
+            +"</div>"
+            + "<div class='modal-body text-center' id='myConfirmContent' style='font-size:18px; '>"
+            + point
+            + "</div>"
+            + "<div class='modal-footer'>"
+            + "<button class='btn btn-danger ' id='confirmOk' >确定<tton>"
+            + "<button class='btn btn-info ' data-dismiss='modal'>取消<tton>"
+            + "</div>" + "</div></div></div>";
+    }
+
+    $("body").append(html);
+    $("#myConfirm").modal("show");
+    $("#confirmOk").on("click", function() {
+        $("#myConfirm").modal("hide");
+        fun(params); 
+    });
+} 
+  function fu (e){
+      alert(e);
+  }
+
+
+ $(function(){
+ 	$("#abc").click(function(){
+ 		var a =confirm("是否删除次项目",fu,"123");
+ 	});
+ 	$("#def").click(function(){
+ 		var a =confirm("是否删除次项目");
+ 	});
+ })
+</script>
+</html>
