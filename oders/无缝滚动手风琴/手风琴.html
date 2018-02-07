@@ -210,6 +210,7 @@
                 prices+=price;
                 var prePrice=parseInt($(ele).find(".shopping_product_list_3").find("label").text().replace(".",""))*num;
                 prePrices+=prePrice;
+                console.log(i);
             });
             $("#product_integral").text(percents);
             $("#product_total").text(prices/100);
@@ -222,6 +223,7 @@
             if(confirm("您确定要删除商品么？")){
                 $(this).parent().parent().remove();
                 totalPrice();
+              
             }
         });
         //修改数量

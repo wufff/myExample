@@ -30,18 +30,19 @@ function confirm(point,fun,params) {
             + "<span>&nbsp提示</span>"
             + "<span style='font-size:20px;'></span>"
             +"</div>"
-            + "<div class='modal-body text-center' id='myConfirmContent' style='font-size:18px; '>"
+            + "<div class='modal-body text-center' id='myConfirmContent' style='font-size:18px;'>"
             + point
             + "</div>"
             + "<div class='modal-footer'>"
-            + "<button class='btn btn-danger ' id='confirmOk' >确定<tton>"
-            + "</div>" + "</div></div></div>";
+            + "<button class='btn btn-danger' id='confirmOk'>确定</button>"
+            + "</div>" 
+            + "</div></div></div>";
     }else {
     	 var html = "<div class='modal fade' id='myConfirm' >"
             + "<div class='modal-backdrop in' style='opacity:0; '></div>"
             + "<div class='modal-dialog' style='z-index:2901; margin-top:160px; width:400px; '>"
             + "<div class='modal-content'>"
-            + "<div class='modal-header'  style='font-size:16px; '>"
+            + "<div class='modal-header'  style='font-size:16px;'>"
             + "<span>&nbsp确认框</span>"
             + "<span style='font-size:20px;'></span>"
             +"</div>"
@@ -49,9 +50,10 @@ function confirm(point,fun,params) {
             + point
             + "</div>"
             + "<div class='modal-footer'>"
-            + "<button class='btn btn-danger ' id='confirmOk' >确定<tton>"
-            + "<button class='btn btn-info ' data-dismiss='modal'>取消<tton>"
-            + "</div>" + "</div></div></div>";
+            + "<button class='btn btn-danger ' id='confirmOk' >确定</button>"
+            + "<button class='btn btn-info ' data-dismiss='modal'>取消</button>"
+            + "</div>" 
+            + "</div></div></div>";
     }
 
     $("body").append(html);

@@ -16,7 +16,8 @@
          margin: 0 auto;
          border: 1px solid red;
          position: absolute;
-         top:-50px;
+      /*   top:-50px;*/
+         top:0;
     }
     .wrapOut{
         border: 1px solid green;
@@ -27,6 +28,16 @@
         overflow: hidden;
     }
     
+   .wrapOut2{
+        border: 1px solid green;
+        width: 700px;
+        height: 370px;
+        margin: 50px auto 0px auto;
+        position: relative;
+    }
+    
+
+
 </style>
 <body>
     <div class="wrapOut">
@@ -34,10 +45,21 @@
         <canvas id="myChart" width="600" height="500"></canvas> 
        </div>
     </div>
-	
+	<div class="wrapOut2">
+        <canvas id="myChart2" width="200" height="100"></canvas>  
+    </div>
+    <div class="wrapOut3">
+        <canvas id="myChart3" width="962" height="270"></canvas>  
+    </div>
+    <div class="wrapOut4">
+        <canvas id="myChart4" width="962" height="270"></canvas>  
+    </div>
 </body>
 <script type="text/javascript">
 var ctx = document.getElementById("myChart").getContext('2d');
+var ctx2 = document.getElementById("myChart2").getContext('2d');
+var linChart = document.getElementById("myChart3").getContext('2d');
+var linChart2 = document.getElementById("myChart4").getContext('2d');
 var data = {
 	datasets: [{
         data: [30, 20, 30],
@@ -50,6 +72,45 @@ var data = {
         'blue'
     ]
 }
+
+
+
+var data2 =  {
+         "labels":["January","February","March","April","May","June","July"],
+         "datasets":[{"label":"My First Dataset","data":[65,59,80,81,56,55,40],
+         "fill":false,"backgroundColor":
+            [
+               "rgba(255, 99, 132, 0.2)",
+               "rgba(255, 159, 64, 0.2)",
+               "rgba(255, 205, 86, 0.2)",
+               "rgba(75, 192, 192, 0.2)",
+               "rgba(54, 162, 235, 0.2)",
+               "rgba(153, 102, 255, 0.2)",
+               "rgba(201, 203, 207, 0.2)"],
+               "borderColor":
+               [
+                   "rgb(255, 99, 132)",
+                   "rgb(255, 159, 64)",
+                   "rgb(255, 205, 86)",
+                   "rgb(75, 192, 192)",
+                   "rgb(54, 162, 235)",
+                   "rgb(153, 102, 255)",
+                   "rgb(201, 203, 207)"
+                ],
+                    "borderWidth":0 }
+            ]
+        }
+
+
+var  baroptions = {
+    "scales":{
+        "yAxes":[{"ticks":{"beginAtZero":true}}]
+       }
+    }
+
+
+
+
 var options = {
      cutoutPercentage:60,
      rotation:-0.5 * Math.PI,
@@ -61,12 +122,81 @@ var options = {
 }
 
 
+
+
 var myChart = new Chart(ctx, {
       type: 'doughnut',
       data: data,
       options: options
 });
+
+
+
+
+
+
+var myChart2 = new Chart(ctx2, {
+      type: 'bar',
+      data: data2,
+      options: baroptions
+});
  
+
+
+
+
+
+  var x_labels = ["January","February","March","April","May","June","July"];
+  var default_datasets = [
+        {
+            label: "My First dataset",
+            fill:false,
+            strokeColor : "rgba(220,220,220,1)",
+            borderColor:"rgb(75, 192, 192)",
+            pointBackgroundColor : "rgb(75, 192, 192)",
+            pointBorderColor:"rgb(75, 192, 192)",
+            data : [12,32,14,35,35,34,14],
+            "lineTension":0
+        },
+        {
+            label: "My Second dataset",
+            fill:false,
+            strokeColor : "rgba(151,162,205,1)",
+            borderColor:"red",
+            pointBackgroundColor : "red",
+            pointColor : "red",
+            pointBorderColor:"red",
+            data : [14,15,18,19,30,30,10],
+            "lineTension":0
+        }
+    ];
+        
+ 
+
+ var lineChartData = {
+    labels : x_labels,
+    datasets : default_datasets
+ };
+  
+
+var lineChartOptions = {
+                         showScale: true,
+                         responsive: true,
+                         multiTooltipTemplate: "<%if (datasetLabel){%><%=datasetLabel%>: <%}%><%= value %>"
+                        };
+
+new Chart(linChart, {
+      type: 'line',
+      data: lineChartData,
+      options: lineChartOptions
+});
+
+
+
+
+
+
+
 
 
 </script>
