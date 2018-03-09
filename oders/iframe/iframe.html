@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>iframe</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+<style type="text/css">
+	*{margin: 0;padding: 0}
+	.container {padding: 30px;}
+
+</style>
+</head>
+<!--iframe是非标准html标签，它是由ie浏览器推出的多布局标签, 随后Mozilla也支持了这个标签。(闲话，嘿嘿)-->
+<body>
+    <div class="container">
+    	<p class="p" id="chirdP1">chirdP1</p>
+    	<p class="p" id="chirdP2">chirdP2</p>
+    	<p class="p" id="chirdP3">chirdP3</p>
+		<p class="p" id="testOder">123</p>
+		<button class="Cbutton">子按钮jq</button>
+		<button class="Cbutton1">子按钮js</button>
+		<button class="Cbutton2">第三种简介方式</button>
+		<button class="Cbutton3">改变自己</button>
+    </div>
+</body>
+<script>
+	//使用JQuery在子Iframe中获取父窗口的元素
+	//$('#父窗口中元素的id', parent.document).事件();
+
+	//使用JS在子Iframe中获取父窗口的元素
+	//window.parent.document.getElementById("div01").click();
+
+
+
+	$(function(){
+          $(".Cbutton").click(function(){
+                 var p = $('#p',parent.document);
+			     p.css("backgroundColor","red");
+          });
+
+		  $(".Cbutton1").click(function(){
+			  var p = window.parent.document.getElementById("p");
+			  p.style.backgroundColor = "red";
+		  });
+		$(".Cbutton2").click(function(){
+			parent.p.innerText="hello,my friend";
+//			以上代码等于 parent.document.getElementById("myH2").innerText="hello,my friend"
+		})
+		$(".Cbutton3").click(function(){
+			document.testOder.innerText="hello,my friend";
+		})
+
+	})
+
+</script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>index</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+<style type="text/css">
+	*{margin: 0;padding: 0}
+	.container {
+		 width: 650px;
+		 height: 650px;	 
+         margin: 50px auto 0 auto;
+         border:1px solid red;
+	}
+
+	iframe {
+		 border:none;
+	}
+</style>
+
+</head>
+<body>
+   <div class="container">
+   	  我父级
+
+   	  <p class="pp" id="p">我是父级下的p元素</p>
+   	  <button class="button-jq">我是父级的按钮-jq</button>
+   	  <button class="button-js">我是父级的按钮-js</button>
+	   <button class="button-order">另一种改变子窗口元素的方法</button>
+   	   <iframe src="iframe.html" scrolling="true" id="chirdIframe"
+			   name="iframe" onload="load()"
+			   BORDER="0" width="400" height="400"></iframe>
+   </div>
+</body>
+<script type="text/javascript">
+//***请在 webstorm 环境下调试 否则会提示跨域
+
+//使用JQuery在父窗口中获取Iframe中的元素：
+//$("#iframe的id").contents().find("#iframe中控件的id");  -------方式1
+//$("#iframe中控件的id",document.frames("iframe的name").document);  ------方式2 实践未成功 document.frames is not a function
+
+//使用JS在父窗口中获取Iframe中的元素：
+//window.frames["iframe中的name值"].document.getElementById("iframe中控件的id").事件();
+
+
+
+//在iframe载入完成后立即弹出 "Iframe is loaded"用onload方法
+
+function load(){
+//	alert("iframe is onload");
+}
+
+
+$(function()
+        {
+          $(".button-jq").click(function(){
+//          var adc =  $("#chirdIframe").contents().find("#chirdP1");
+			var adc = $("#chirdP1",document.frames("iframe").document);
+          	adc.css("backgroundColor","red");
+          });
+
+
+
+         $(".button-js").click(function(){
+         	var dom =  window.frames["iframe"].document.getElementById("chirdP1");
+			 dom.style.backgroundColor="red";
+         });
+
+		$(".button-order").click(function(){
+           var d = document.testOder;
+			console.log(d);
+		 })
+	})
+</script>
+</html>
+
+
+<!--iframe的好处：-->
+
+<!--1.它属于html的独立封装，可以把需要的代码分成一个个html的模块存储，需要的时候进行引用，代码复用上挺好的。-->
+<!--2.它另外一个非常霸道的地方在于2个页面中有遇到重复命名的时候它的css和js不会互相冲突，对于团队开发命名上可以很好的避免同名冲突。-->
+
+<!--iframe的缺点：-->
+
+<!--1.因为它属于外部引入其他html代码，iframe引入的这些html爬虫是爬不到的，所以在seo方面是个坑。-->
+<!--2.并且是引入外来html的代码，需要再次向服务器请求，而且它对浏览器的性能损耗相对div提高十几倍，加载速度上会慢一点。-->
+<!--因此面对seo爬虫和性能原因上也有些人少用它的原因。-->
