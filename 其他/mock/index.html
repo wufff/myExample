@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>mock</title>
+    <!--<script src="mock.min.js"></script>-->
+    <script src="http://mockjs.com/dist/mock.js"></script>
+</head>
+<body>
+  <div id="text"></div>
+</body>
+<script>
+    var text = document.getElementById("text");
+    var star = Mock.mock({
+        "string|1-10": "★"
+    });
+
+
+
+
+//    2表示在下面随机取2个
+    var ct =  Mock.mock({
+        "object|2": {
+            "310000": "上海市",
+            "320000": "江苏省",
+            "330000": "浙江省",
+            "340000": "安徽省"
+        }
+    });
+
+    //  2-4 在下面随机取2-4个
+    var ct2 =Mock.mock({
+        "object|2-4": {
+            "110000": "北京市",
+            "120000": "天津市",
+            "130000": "河北省",
+            "140000": "山西省"
+        }
+    });
+
+
+
+//    1表示在下面随机选择1个
+    var array0 =  Mock.mock({
+        "array|1": [
+            "AMD",
+            "CMD",
+            "UMD"
+        ]
+    });
+
+    //    1表示在下面每次输出1个并且下标index＋1个
+    var array1 = Mock.mock({
+        "array|+1": [
+            "AMD",
+            "CMD",
+            "UMD"
+        ]
+    })
+
+
+
+
+    //    1-3表示在下面随机取循环整个1到3次
+     var array = Mock.mock({
+        "array|1-3": [
+            "Hello",
+            "Mock.js",
+            "!"
+        ]
+    });
+
+
+
+
+
+
+    var test = [
+        [
+            "Tiger Nixon",
+            "System Architect",
+            "Edinburgh",
+            "5421",
+            "2011/04/25",
+            "$3,120"
+        ],
+        [
+            "Garrett Winters",
+            "Director",
+            "Edinburgh",
+            "8422",
+            "2011/07/25",
+            "$5,300"
+        ],
+        [
+            "Garrett Winters",
+            "Director",
+            "Edinburgh",
+            "8422",
+            "2011/07/25",
+            "$5,300"
+        ],
+        [
+            "Garrett Winters",
+            "Director",
+            "Edinburgh",
+            "8422",
+            "2011/07/25",
+            "$5,300"
+        ],
+        [
+            "Tiger Nixon",
+            "System Architect",
+            "Edinburgh",
+            "5421",
+            "2011/04/25",
+            "$3,120"
+        ],
+        [
+            "Garrett Winters",
+            "Director",
+            "Edinburgh",
+            "8422",
+            "2011/07/25",
+            "$5,300"
+        ],
+        [
+            "Garrett Winters",
+            "Director",
+            "Edinburgh",
+            "8422",
+            "2011/07/25",
+            "$5,300"
+        ],
+        [
+            "Garrett Winters",
+            "Director",
+            "Edinburgh",
+            "8422",
+            "2011/07/25",
+            "$5,300"
+        ]
+    ];
+
+
+    var answer1 = Mock.mock({
+        "data|1": [
+            [
+                "Garrett Winters",
+                "Director",
+                "Edinburgh",
+                "8422",
+                "2011/07/25",
+                "$5,300"
+            ],
+            [
+                "Garrett Winters",
+                "Director",
+                "Edinburgh",
+                "8422",
+                "2011/07/25",
+                "$5,300"
+            ],
+            [
+                "Tiger Nixon",
+                "System Architect",
+                "Edinburgh",
+                "5421",
+                "2011/04/25",
+                "$3,120"
+            ]
+        ]
+    });
+
+
+
+
+
+
+    var answer = Mock.mock({
+        "data|2-4": [
+            Mock.mock({
+                "data|1": [
+                    [
+                        "Garrett Winters",
+                        "Director",
+                        "Edinburgh",
+                        "8422",
+                        "2011/07/25",
+                        "$5,300"
+                    ],
+                    [
+                        "Garrett Winters",
+                        "Director",
+                        "Edinburgh",
+                        "8422",
+                        "2011/07/25",
+                        "$5,300"
+                    ],
+                    [
+                        "Tiger Nixon",
+                        "System Architect",
+                        "Edinburgh",
+                        "5421",
+                        "2011/04/25",
+                        "$3,120"
+                    ]
+                ]
+            }).data
+        ]
+    });
+
+
+
+    var data8 = Mock.mock({
+        //list|1-10 数组元素个数随机范围， id|+2 属性值递增, age|20-30数值随机范围
+        // test|3.2-5 3.xx-3.xxxxx 整数位3，小数位位数范围为2-5
+        //'yourname|2-4': 'alice-' 重复字符串的次数范围2-4
+        //常规真实数据格式，@name @color @url @first @last
+
+        'list|1-10': [{'id|+2': 1 , 'age|20-30': 100}],
+        'name': '@name',
+        'color': '@color',
+        'url': '@url',
+        'email': '@email',
+        'friends|3': [{name: '@name'}],
+        'price|10-20.2-5': 11,
+        'cost|10-20.3': 11,
+        'test|3.2-5': 52,
+        'yourname|2-4': 'alice-'
+    });
+
+//    JSON.stringify(answer, null, 2);
+    text.innerText = JSON.stringify(answer.data, null, 2);
+    console.log(answer.data);
+
+</script>
+</html>
