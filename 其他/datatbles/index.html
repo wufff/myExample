@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+     <meta charset="UTF-8">
+     <title>dataTables</title>
+     <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
+     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+     <script type="text/javascript" charset="utf8" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+     <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
+     <script type="text/javascript" src="js/data.js"></script>
+      <style type="text/css">
+
+      	.container {width: 1000px; margin:50px auto 0 auto;}
+      </style>
+</head>
+  
+<body>
+    <div class="container">
+    	<table id="table_id_example" class="display">
+		    <thead>
+		    	<tr>
+		    		<th>name</th>
+		    		<th>paosint</th>
+		    		<th>paint</th>
+		    		<th>pairtgnt</th>
+		    		<th>pdsfaint</th>
+		    		<th>int</th>
+		    	</tr>
+		    </thead>
+		</table>
+    </div>
+</body>
+<script type="text/javascript">
+		$(document).ready( function () {
+		    $('#table_id_example').DataTable({
+			        data: data
+			    });
+		});
+
+</script>
+</html>

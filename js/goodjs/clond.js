@@ -28,6 +28,14 @@ var cloud = cloud || {};
      * @param  {Boolean} isShow 是否显示遮罩层
      * @param  {String}  text   显示文本
      */
+      // 前端必须加入html元素
+//          <div id="loadingPage" style="display: none;">
+//     <div class="loading-shade"></div>
+//     <div class="loading-content" onclick="cloud.common.loading(false)">数据加载中，请稍候…</div>
+// </div>
+         
+
+
     cloud.common.loading = function (isShow, text) {
         var $loadingpage = top.$("#loadingPage");
         var $loadingtext = $loadingpage.find('.loading-content');

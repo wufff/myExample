@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,user-scalable=no" />
+		<title>平滑拖动</title>
+		<script src="../js/navSlide/transform.js"></script>
+<script>
+setRem();
+window.addEventListener("orientationchange", setRem);
+window.addEventListener("resize", setRem);
+function setRem() {
+	var html = document.querySelector("html");
+	var width = html.getBoundingClientRect().width;
+	html.style.fontSize = width / 16 + "px";
+}
+</script>
+	</head>
+<style>
+		body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+dl,
+dd {
+  margin: 0;
+  -webkit-text-size-adjust: 100%;
+  font-family: Helvetica;
+}
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+img {
+  display: block;
+}
+a {
+  text-decoration: none;
+}
+a,
+input,
+button {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-appearance: none;
+  outline: none;
+}
+html,
+body {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #eee;
+}
+.wrap {
+  height: 100%;
+  overflow: auto;
+}
+#header {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  height: 4rem;
+}
+
+.content {
+  padding-top: 4rem;
+  position: relative;
+  z-index: 1;
+}
+#navScroll {
+  height: 2.62222222rem;
+  border-bottom: 1px solid #ccc;
+  box-sizing: border-box;
+  padding: 0.45925926rem 0 0.20740741rem;
+  overflow: hidden;
+}
+#navs {
+  height: 1.91111111rem;
+  white-space: nowrap;
+  font-size: 0;
+  float: left;
+}
+#navs li {
+  display: inline-block;
+  padding: 0 0.56296296rem;
+  line-height: 1.91111111rem;
+  font-size: 1.03703704rem;
+}
+#navs a {
+  color: #020202;
+}
+#navs .active {
+  background: #690;
+}
+#navs .active a {
+  color: #fff;
+}
+
+</style>
+	<body>
+		<section class="wrap">
+			<header id="header">
+				
+			</header>
+		
+	<div class="content">
+		<nav id="navScroll">
+			<ul id="navs">
+				<li class="active">
+		            <a href="javascript:void(0);" class="" data-tab="index">首页</a>
+		        </li>
+		        <li>
+		            <a href="javascript:void(0);" data-tab="mv" class="">MV</a>
+		        </li>
+		        <li>
+		            <a href="javascript:void(0);" data-tab="pl" class="">悦单</a>
+		        </li>
+		        <li>
+		            <a href="javascript:void(0);" data-tab="vchart" class="">V榜</a>
+		        </li>
+			    <li><a href="javascript:void(0);" class="">众筹</a></li>
+		        <li>
+		            <a href="javascript:void(0);" data-tab="wapfan" class="">饭团</a>
+		        </li>
+		        <li>
+		            <a href="javascript:void(0);" data-tab="program" class="">节目</a>
+		        </li><li>
+		            <a href="javascript:void(0);" data-tab="program" class="">节目</a>
+		        </li>
+		        <li>
+		            <a href="javascript:void(0);" data-tab="stage" class="">音悦stage</a>
+		        </li>
+		        <li>
+		            <a href="javascript:void(0);" data-tab="apps/mobile" class="">APP下载</a>
+		        </li>
+		        <li>
+		            <a href="javascript:void(0);" target="_blank" class="">资讯</a>
+		        </li>
+		        <li>
+		            <a href="javascript:void(0);" target="_blank" class="selected">我的家</a>
+		        </li>
+		        <li>
+		            <a href="javascript:void(0);" data-tab="apps" class="">热门应用</a>
+		        </li>
+			</ul>
+		</nav>
+		</section>
+		</body>
+<script>
+	var navScroll = document.querySelector('#navScroll');
+	var navs = document.querySelector('#navs');
+	navSwipe(navScroll,navs);
+    function navSwipe(box,ele) {
+	/*var navScroll = document.querySelector('#navScroll');
+	var navs = document.querySelector('#navs');*/
+	var startPoint = 0;
+	var startX = 0;
+	var minX = box.clientWidth - ele.offsetWidth;
+	var step = 1;
+	var lastX = 0; //上次的距离
+	var lastTime = 0;//上次的时间戳
+	var lastDis = 0;
+	var lastTimeDis = 0;
+		box.addEventListener(
+		'touchstart', 
+		function(e) {
+			ele.style.transition = "none";
+			startPoint = e.changedTouches[0].pageX;
+			startX = cssTransform(ele,"translateX");
+			step = 1;
+			lastX = startX;
+			lastTime = new Date().getTime();
+			lastDis = 0;
+			lastTimeDis = 0;
+		}
+	);
+		box.addEventListener(
+		'touchmove', 
+		function(e) {
+			var nowPoint = e.changedTouches[0].pageX;
+			var dis = nowPoint - startPoint;
+			var left = startX + dis;
+			var nowTime = new Date().getTime();
+			if(left > 0) {
+				step = 1-left / box.clientWidth; //根据超出长度计算系数大小，超出的越到 系数越小
+				left = parseInt(left*step);
+				/*left = 0;*/
+			}
+			if(left < minX) {
+				var over = minX - left; // 计算下超出值
+				step = 1-over / box.clientWidth; //根据超出值计算系数
+				over = parseInt(over*step);
+				left = minX - over;
+			}
+			lastDis = left-lastX; //距离差值
+			lastTimeDis = nowTime - lastTime; //时间差值
+			lastX = left;
+			lastTime = nowTime;
+			cssTransform(ele,"translateX",left);
+		}
+	);
+		box.addEventListener(
+		'touchend', 
+		function (){
+			var speed = (lastDis/lastTimeDis)*300; //用距离差值/时间差值 = 速度   速度*系数 = 缓冲距离
+			var left = cssTransform(ele,"translateX");
+			var target = left + speed; //当前值 + 缓冲距离 = 目标点
+			var type = "cubic-bezier(.34,.92,.58,.9)";
+			var time = Math.abs(speed*.9);
+			time = time<300?300:time;
+			if(target > 0) {
+				target = 0;
+				type ="cubic-bezier(.08,1.44,.6,1.46)";
+			}
+			if(target < minX) {
+				target = minX;
+				type ="cubic-bezier(.08,1.44,.6,1.46)";
+			}
+			ele.style.transition = time+"ms " + type;
+			cssTransform(ele,"translateX",target);
+		}
+	);
+}
+</script>
+</html>
