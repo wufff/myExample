@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Loadingdome1</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+</style>
+</head>
+
+<style type="text/css">
+	#loadingPage .loading-shade {
+		   cursor: wait; 
+		   display: block; 
+		   width: 100%; 
+		   height: 100%; 
+		   opacity: 0.0; filter: alpha(opacity=00); 
+		   background: #fff; 
+		   position: fixed; 
+		   top: 0; 
+		   left: 0; 
+		   z-index: 100009;
+		}
+     #loadingPage .loading-content {
+     	    cursor: default; 
+     	    position: fixed; 
+     	    z-index: 100019; 
+     	    width: auto; 
+     	    border: 1px solid rgb(187, 187, 187); 
+     	    height: 80px; 
+     	    line-height: 80px; 
+     	    padding-left: 80px; 
+     	    padding-right: 20px; 
+     	    border-radius: 10px; 
+     	    color: rgb(102, 102, 102); 
+     	    font-size: 20px; 
+     	    left: 50%; 
+     	    top: 50%; 
+     	    background: url(img/loading.gif) 5px 50% no-repeat rgb(255, 255, 255);
+     	    box-shadow: 0 1px 15px rgba(0,0,0,.175);
+     	    margin-top: -40px;
+     	}
+
+</style>
+<body>
+    <div id="loadingPage" style="display: none">
+	    <!-- <div class="loading-shade"></div> -->
+	    <div class="loading-content" onclick="">数据加载中，请稍候…</div>
+   </div>  
+   <button id="show">show</button>
+   <button id="hide">hide</button>
+</div>
+</body>
+<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    function  laoding(b,t) {
+    	  if(b){
+    	  	    var text =  $("#loadingPage").find(".loading-content");
+    	  		if(t){
+		          		text.html(t)
+		               $("#loadingPage").show();
+				         var left = text.width();
+				         text.css("marginLeft",-text.width()/2);
+    	  		}else {
+    	  			    text.html("数据加载中，请稍候…")
+		                $("#loadingPage").show();
+				         var left = text.width();
+				         text.css("marginLeft",-text.width()/2);
+    	  		}
+    	  }else {
+    	  	 $("#loadingPage").hide();  
+    	  }
+        }
+	$(function(){
+		$("#show").click(function(){
+            laoding(true,"正在提交中...");
+		})
+		$("#hide").click(function(){
+			laoding(false);
+		})
+	})
+</script>
+</html>
