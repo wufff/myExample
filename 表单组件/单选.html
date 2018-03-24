@@ -6,7 +6,7 @@
     <title></title>
     <link rel="stylesheet" href="../css/reset.css"/>
     <script src="../js/jq/jquery-1.9.1.min.js"></script>
-
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
     <!--<script src="js/selectivizr.js"></script>-->
     <!--<noscript><link rel="stylesheet" href="css/wl.css"/></noscript>-->
 
@@ -43,7 +43,6 @@
     }
     #radio1 li input[type=radio]:checked + label:before {
         content: url(../img/icon_quan_red.png);
-
     }
     /*方法一结束*/
     /*方法二*/
@@ -57,10 +56,45 @@
         position: relative;
         top: 4px;
     }
+
     #radio2 .this{
         background: url(../img/icon_quan_red.png) no-repeat;
     }
     /*方法二结束*/
+
+
+    /*方法三*/
+   #radio3 li input[type=radio] {
+     opacity: 0;
+   }
+
+   #radio3 li input[type=radio]+ label:before {
+        content: '';
+        vertical-align: middle;
+        margin-right:6px;
+        margin-top: 2px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50px;
+        border: 1px solid #ccc;
+        background: #fff;
+        display: inline-block;
+   }
+
+
+   #radio3 li input[type=radio]:checked+ label:before {
+        content: '<i class="fa fa-circle"></i>';
+        vertical-align: middle;
+        margin-right:6px;
+        margin-top: 2px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50px;
+        border: 1px solid #ccc;
+        background: #fff;
+        display: inline-block;
+   }
+    /*方法三结束*/
 </style>
 <script>
    $(function(){
@@ -78,7 +112,8 @@
             <li>方法一</li>
             <li>
                 <input type="radio" name="payType" id="ali1" checked="checked"/>
-                <label for="ali1">全部评价</label><span>（0）</span>
+                <label for="ali1">全部评价</label>
+                <span>（0）</span>
             </li>
             <li>
                 <input type="radio" name="payType"  id="ali2" />
@@ -115,6 +150,40 @@
             <li><span class="radio"></span>差评<span>（0）</span></li>
             <li><span class="radio"></span>晒图<span>（0）</span></li>
             <li><span class="radio"></span>追评<span>（0）</span></li>
+        </ul>
+    </div>
+
+
+     <div class="radio_box clear">
+        <ul id="radio3">
+             <li>
+                 方法三//用Font Awesome
+             </li>
+             <li>
+                <input type="radio" name="payType3" id="a1" checked="checked"/>
+                <label for="a1">全部评价</label>
+                <span></span>
+            </li>
+            <li>
+                <input type="radio" name="payType3"  id="a2" />
+                <label for="a2">好评</label><span>（0）</span>
+            </li>
+            <li>
+                <input type="radio" name="payType3" id="a3" />
+                <label for="a3">中评</label><span>（23123）</span>
+            </li>
+            <li>
+                <input type="radio" name="payType3" id="a4" />
+                <label for="a4">差评</label><span>（2213）</span>
+            </li>
+            <li>
+                <input type="radio" name="payType3" id="a5" />
+                <label for="a5">晒图</label><span>（0）</span>
+            </li>
+            <li>
+                <input type="radio" name="payType3" id="a6"/>
+                <label for="a6">追评</label><span>（0）</span>
+            </li>
         </ul>
     </div>
 </body>
