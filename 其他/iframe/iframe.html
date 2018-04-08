@@ -25,16 +25,20 @@
 		<button class="Cbutton1">子按钮js</button>
 		<button class="Cbutton2">第三种简介方式</button>
 		<button class="Cbutton3">改变自己</button>
+		<button class="Cbutton4">触发父窗口方法</button>
     </div>
 </body>
 <script>
 	//使用JQuery在子Iframe中获取父窗口的元素
 	//$('#父窗口中元素的id', parent.document).事件();
 
+     //使用JQuery在子Iframe中执行父窗口中的方法
+	//parent.方法();
+
 	//使用JS在子Iframe中获取父窗口的元素
 	//window.parent.document.getElementById("div01").click();
 
-
+   
 
 	$(function(){
           $(".Cbutton").click(function(){
@@ -53,7 +57,11 @@
 		$(".Cbutton3").click(function(){
 			document.testOder.innerText="hello,my friend";
 		})
-
+      
+        $(".Cbutton4").click(function(){
+			parent.showP();
+//			window.parent.showP(); 也可以
+        })
 	})
 
 </script>

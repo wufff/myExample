@@ -50,10 +50,12 @@
 
 //在iframe载入完成后立即弹出 "Iframe is loaded"用onload方法
 
-function load(){
+function load () {
 //	alert("iframe is onload");
 }
-
+function  showP () {
+	alert("我是父页面方法");
+}
 
 $(function()
         {
@@ -62,9 +64,6 @@ $(function()
 			var adc = $("#chirdP1",document.frames("iframe").document);
           	adc.css("backgroundColor","red");
           });
-
-
-
          $(".button-js").click(function(){
          	var dom =  window.frames["iframe"].document.getElementById("chirdP1");
 			 dom.style.backgroundColor="red";
