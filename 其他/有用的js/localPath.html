@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+<title>获取本地文件路径</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+</head>
+<body>    
+	<input type="file" id="id" name="image" class="getImgUrl_file" onchange="preview(this)">
+</body>
+ <script type="text/javascript">
+ 	preview(this) {
+ 	     var input = document.getElementById("id")
+ 		 var file = input.files[0]; 
+         var reader = new FileReader();  
+        reader.readAsDataURL(file);
+        reader.onload = function(e){
+            //读取完成后，数据保存在对象的result属性中
+           console.log(e)
+        } 
+ 	}
+ 	 
+
+ </script>
+</html>

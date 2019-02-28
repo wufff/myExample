@@ -17,7 +17,7 @@
         float:left;
     }
     .imgTest2{
-        width:300px ;
+        width:500px ;
         height:300px;
         float:left;
         background: url("../img/1.png") no-repeat center;
@@ -70,13 +70,35 @@
        max-height: 140px;
        margin: 0 auto;
     }
+
+
+    .imgTest7 img{
+       display: block;
+       max-width: 170px;
+       max-height: 140px;
+       margin: 0 auto;
+    }
+    .imgTest7 {
+         width: 30px;
+         background-color: red;
+         float: left;
+         text-align: center;
+         vertical-align: middle;
+
+    }
+    .imgTest7 img {
+        vertical-align: middle;
+    }
 </style>
 <body>
-   <div class="imgTest"></div>
-    <div class="imgTest2"></div>
+   <div class="imgTest">background-size:cover;</div>
+    <div class="imgTest2">background-size:contain</div>
    <div class="imgTest3"></div>
     <div class="imgTest4"><img src="../img/1.png"></div>
      <div class="imgTest5"><img src="../img/1.png"></div>
      <div class="imgTest6"><img src="../img/1.png"></div>
+     <div class="imgTest7">
+        <img src="../img/1.png">
+    </div>
 </body>
 </html>

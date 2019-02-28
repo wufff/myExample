@@ -16,16 +16,6 @@ table{border-collapse:collapse;border-spacing:0;}
 .clear{clear: both;float: none;overflow: hidden;}
 .clearfix:after{content: "";display:block;clear: both;}
 .clearfix:after{*zoom: 1}
-html .hide{display:none;}
-
-
-
-body,h1,h2,h3,h4,h5,h6,p,dl,dd {
-	margin:0;
-	padding:0;
-	-webkit-text-size-adjust:100%;
-	font-family:Helvetica;
-}
 ul,ol,dl,dd {
 	list-style: none;
 }
