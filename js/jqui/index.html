@@ -1,44 +1,111 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>jQuery UI 拖动（Draggable） + 排序（Sortable）</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
-  <style>
-  ul { list-style-type: none; margin: 0; padding: 0; margin-bottom: 10px; }
-  li { margin: 5px; padding: 5px; width: 150px; }
-  </style>
-  <script>
-  $(function() {
-    $( "#sortable" ).sortable({
-      revert: true
-    });
-    $( "#draggable" ).draggable({
-      connectToSortable: "#sortable",
-      helper: "clone",
-      revert: "invalid"
-    });
-    $( "ul, li" ).disableSelection();
-  });
-  </script>
-</head>
-<body>
- 
-<ul>
-  <li id="draggable" class="ui-state-highlight">请拖拽我</li>
-</ul>
- 
-<ul id="sortable">
-  <li class="ui-state-default">Item 1</li>
-  <li class="ui-state-default">Item 2</li>
-  <li class="ui-state-default">Item 3</li>
-  <li class="ui-state-default">Item 4</li>
-  <li class="ui-state-default">Item 5</li>
-</ul>
- 
- 
-</body>
-</html>
+    <!doctype html>
+    <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <title>jQuery UI 排序（Sortable） - 连接列表</title>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+      <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+      <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
+      <style>
+       html, body{
+         width: 100%;
+         height: 100%;
+         overflow: hidden;
+       }
+       .container {
+         width: 1200px;
+         margin: 0 auto;
+       }
+       ul  {
+          list-style-type: none;
+          height: 300px;
+       }
+       ul li{
+         float: left;
+         height: 40px;
+         width: 40px;
+         text-align: center;
+       }
+      #leftWrap { 
+           width: 73%;
+           background-color: #fafafa;
+           min-height: 300px;
+           float: left;
+         }
+     #rightWrap { 
+           width: 25%;
+           background-color: #fafafa;
+            min-height: 300px;
+           float: right;
+         }      
+      </style>
+      <script>
+      $(function() {
+        $( "#sortable1, #sortable2, #sortable3, #sortable4, #sortable5" ).sortable({
+          connectWith: ".connectedSortable"
+        }).disableSelection();
+
+        $( "#leftWrap, #rightWrap" ).sortable({
+          connectWith: ".connectedSortable_1",
+          containment: "#body"
+        }).disableSelection();        
+      });
+      </script>
+    </head>
+    <body id="body">
+      <div class="container">
+         <div class="connectedSortable_1" id="leftWrap">
+             <ul id="sortable1" class="connectedSortable" style="background-color: pink">
+                <li class="ui-state-default">Item 1</li>
+                <li class="ui-state-default">Item 2</li>
+                <li class="ui-state-default">Item 3</li>
+                <li class="ui-state-default">Item 4</li>
+             </ul>
+              <ul id="sortable2" class="connectedSortable" style="background-color: orange;">
+                <li class="ui-state-error">Item 1</li>
+                <li class="ui-state-error">Item 2</li>
+                <li class="ui-state-error">Item 3</li>
+                <li class="ui-state-error">Item 4</li>
+             </ul>
+              <ul id="sortable3" class="connectedSortable" style="background-color: blue;">
+                <li class="ui-state-highlight">Item 1</li>
+                <li class="ui-state-highlight">Item 2</li>
+                <li class="ui-state-highlight">Item 3</li>
+                <li class="ui-state-highlight">Item 4</li>
+             </ul>               
+         </div>
+         <div id="rightWrap" class="connectedSortable_1">
+              <ul id="sortable4" class="connectedSortable" style="background-color: green;">
+                <li class="ui-state-highlight">4-1</li>
+                <li class="ui-state-highlight">4-2</li>
+                <li class="ui-state-highlight">4-3</li>
+                <li class="ui-state-highlight">4-4</li>
+             </ul>           
+              <ul id="sortable5" class="connectedSortable" style="background-color: red;">
+                <li class="ui-state-highlight">5-1</li>
+                <li class="ui-state-highlight">5-2</li>
+                <li class="ui-state-highlight">5-3</li>
+                <li class="ui-state-highlight">5-4</li>
+             </ul>                                         
+         </div>
+      </div>
+   <!--  <ul id="sortable1" class="connectedSortable">
+      <li class="ui-state-default">Item 1</li>
+      <li class="ui-state-default">Item 2</li>
+      <li class="ui-state-default">Item 3</li>
+      <li class="ui-state-default">Item 4</li>
+      <li class="ui-state-default">Item 5</li>
+    </ul>
+     
+    <ul id="sortable2" class="connectedSortable">
+      <li class="ui-state-highlight">Item 1</li>
+      <li class="ui-state-highlight">Item 2</li>
+      <li class="ui-state-highlight">Item 3</li>
+      <li class="ui-state-highlight">Item 4</li>
+      <li class="ui-state-highlight">Item 5</li>
+    </ul> -->
+     
+     
+    </body>
+    </html>
