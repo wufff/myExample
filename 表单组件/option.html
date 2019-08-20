@@ -10,45 +10,46 @@
 </head>
 
 <body>
-     <div class="wrap">
-         <select class="select">
-         	<option >adfadsf</option>
-         	<option><div class="dad" style="width: 100px;">adfadsf123123qweqweqweqweqweq</div></option>
-         	<option>adfadsf123123</option>
-         	<option>adfadsf</option>
-         	<option>adfads12f</option>
-         	<option>adfads12f</option>
-         </select>
-    
-     <div class="selectWrap">
-     	 <span class="nr">阿凡达</span>
-     	<ul class="ul">
-     		<li>阿桐木</li>
-     		<li>安道尔</li>
-     		<li>阿里巴巴</li>
-     		<li>阿香婆</li>
-     		<li>阿门</li>
-     		<li>阿狗</li>
-       </ul>
-     </div>
-  </div>
+    <div class="wrap">
+        <select class="select">
+            <option>adfadsf</option>
+            <option>
+                <div class="dad" style="width: 100px;">adfadsf123123qweqweqweqweqweq</div>
+            </option>
+            <option>adfadsf123123</option>
+            <option>adfadsf</option>
+            <option>adfads12f</option>
+            <option>adfads12f</option>
+        </select>
+        <div class="selectWrap">
+            <span class="nr">阿凡达</span>
+            <ul class="ul">
+                <li>阿桐木</li>
+                <li>安道尔</li>
+                <li>阿里巴巴</li>
+                <li>阿香婆</li>
+                <li>阿门</li>
+                <li>阿狗</li>
+            </ul>
+        </div>
+    </div>
 </body>
 <script src="../js/jq/jquery-1.9.1.min.js"></script>
 <script type="text/javascript">
-	$(function(){
-		$(".selectWrap").click(function(){
-			 $(".ul").show();
-			 return false;
-		})
-		$(".selectWrap").find("li").click(function(){
-			var vaule = $(this).text();
-			$(".nr").html(vaule);
-			$(".ul").hide();
-		    return false;
-		})
-		$(document).click(function(){
-			$(".ul").hide();
-		})
-	})
+    $(function() {
+        $(".selectWrap").click(function() {
+            $(".ul").show();
+            retur1n false;
+        })
+        $(".selectWrap").find("li").click(function() {
+            var vaule = $(this).text();
+            $(".nr").html(vaule);
+            $(".ul").hide();
+            return false;
+        })
+        $(document).click(function() {
+            $(".ul").hide();
+        })
+    })
 </script>
 </html>
